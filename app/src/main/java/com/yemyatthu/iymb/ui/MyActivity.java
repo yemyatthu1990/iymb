@@ -49,6 +49,7 @@ public class MyActivity extends ActionBarActivity {
     mLoading = false;
     mGoodToGo = false;
     setRandomText();
+
     restAdapter = new RestAdapter.Builder().setEndpoint(getString(R.string.api))
         .setLogLevel(RestAdapter.LogLevel.FULL)
         .build();
@@ -64,6 +65,10 @@ public class MyActivity extends ActionBarActivity {
       if(file.exists()){
         mFactList =JsonService.convertToJava(JsonService.loadData(MyActivity.this, "facts.json"));
         mGoodToGo =true;
+        int position = randInt(0,mFactList.size()-1);
+        mFactText.setText(mFactList.get(position).getText());
+        mFactText.show();
+        setRandomText();
       }
       else{
         mFactText.setText(getString(R.string.no_net));
@@ -112,6 +117,10 @@ public class MyActivity extends ActionBarActivity {
         mFactList = facts;
         JsonService.saveData(MyActivity.this,JsonService.convertToJson(facts),"facts.json");
         mLoading = true;
+        int position = randInt(0,mFactList.size()-1);
+        mFactText.setText(mFactList.get(position).getText());
+        mFactText.show();
+        setRandomText();
 
       }
 
