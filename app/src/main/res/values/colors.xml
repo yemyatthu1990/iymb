@@ -1,0 +1,6 @@
+<resources>
+  <color name="primary">#ff49877a</color>
+  <color name="primary_dark">#FF316255</color>
+  <color name="accent">#ff071e25</color>
+  <color name="button_select">#FF1F3E33</color>
+</resources>
