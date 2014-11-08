@@ -87,7 +87,7 @@ public class MyActivity extends ActionBarActivity {
       @Override public void onClick(View view) {
         Intent i = new Intent(MyActivity.this, MindBlownActivity.class);
         i.putExtra(TAG, mFactText.getText().toString());
-        startActivity(i);
+        startActivityForResult(i, 1);
       }
     });
     mNotYetBtn.setOnClickListener(new View.OnClickListener() {
@@ -193,6 +193,17 @@ public class MyActivity extends ActionBarActivity {
         }
       }
       return false;
+    }
+  }
+
+  @Override protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+    if(requestCode == 1){
+      Log.d("dfdf","request code 1");
+      int position = randInt(0, mFactList.size() - 1);
+      mFactText.setText(mFactList.get(position).getText());
+      mFactText.show();
+      setRandomText();
     }
   }
 }

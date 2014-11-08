@@ -1,5 +1,6 @@
 package com.yemyatthu.iymb.ui;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
@@ -40,7 +41,8 @@ public class MindBlownActivity extends ActionBarActivity {
     });
     mBackBtn.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View view) {
-        finish();
+        setResult(Activity.RESULT_OK);
+            finish();
       }
     });
   }
@@ -67,4 +69,5 @@ public class MindBlownActivity extends ActionBarActivity {
     mGifImage.loadUrl(
         "file:///android_asset/gifs" + "/" + mGifList[randInt(0, mGifList.length - 1)]);
   }
+
 }
