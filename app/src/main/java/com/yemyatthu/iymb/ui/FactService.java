@@ -9,6 +9,5 @@ import retrofit.http.GET;
  * Created by yemyatthu on 11/7/14.
  */
 public interface FactService {
-    @GET("/") void getFact(Callback<List<Fact>> factCallBack);
-
+  @GET("/") void getFact(Callback<List<Fact>> factCallBack);
 }

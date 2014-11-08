@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/accent">
+  <WebView
+      android:id="@+id/gif_image"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:scaleX="1.2"
+      android:scaleY="3"
+      android:layout_centerInParent="true"/>
+  <TextView
+      android:id="@+id/fact_text_detail"
+      style="@style/mQuoteTextStyle"
+      android:shadowColor="@android:color/black"
+      android:shadowRadius="5"
+      android:layout_above="@+id/button_container"
+      tools:text="my mind blown fact"
+      android:layout_centerHorizontal="true"
+      android:gravity="center"
+      android:layout_marginBottom="60dp"/>
+  <LinearLayout
+      android:id="@+id/button_container"
+      android:layout_alignParentBottom="true"
+      android:layout_centerHorizontal="true"
+      android:layout_marginBottom="40dp"
+      android:layout_width="wrap_content" android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:layout_gravity="center_horizontal">
+    <ImageButton
+        android:id="@+id/share_btn"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:src="@drawable/ic_share_white_48dp"
+        android:elevation="20dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginRight="50dp"
+        android:layout_marginEnd="50dp"
+        android:background="@android:color/transparent" tools:ignore="UnusedAttribute"/>
+    <ImageButton
+        android:id="@+id/back_btn"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:elevation="20dp"
+        android:src="@drawable/ic_arrow_back_white_48dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
+        android:background="@android:color/transparent" tools:ignore="UnusedAttribute"/>
+  </LinearLayout>
+</RelativeLayout>

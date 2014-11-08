@@ -4,39 +4,45 @@
     android:id="@+id/quote_background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:elevation="20dp"
     android:background="@color/accent">
-      <com.yemyatthu.iymb.ui.widget.SecretTextView
-          android:id="@+id/fact_text"
-          android:fontFamily="sans-serif-condensed"
-          style="@style/mQuoteTextStyle"
-          android:layout_above="@+id/mind_blown_text"
-          android:layout_marginBottom="140dp"
-          tools:text="is your mind blown?"
-          android:layout_centerVertical="true"
-          android:layout_centerHorizontal="true"
-          android:gravity="center"
-          tools:ignore="UnusedAttribute"/>
-      <TextView
-          android:id="@+id/mind_blown_text"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_above="@+id/mind_blown_btn"
-          android:layout_centerHorizontal="true"
-          android:layout_marginBottom="20dp"
-          android:textSize="20sp"
-          android:fontFamily="sans-serif-condensed"
-          android:text="@string/is_mind_blown"
-          android:textColor="@color/primary"
-          tools:ignore="UnusedAttribute"/>
-      <Button
-          android:id="@+id/mind_blown_btn"
-          style="@style/mButtonTextStyle"
-          android:layout_above="@+id/not_yet_btn"/>
-      <Button
-          android:id="@+id/not_yet_btn"
-          style="@style/mButtonTextStyle"
-          android:layout_marginBottom="40dp"
-          android:layout_alignParentBottom="true"/>
+  <include layout="@layout/toolbar"
+      android:layout_height="?android:attr/actionBarSize"
+      android:layout_width="match_parent"
+      android:id="@+id/toolbar"
+      android:layout_alignParentTop="true"/>
+  <com.yemyatthu.iymb.ui.widget.SecretTextView
+      android:id="@+id/fact_text"
+      android:fontFamily="sans-serif-condensed"
+      style="@style/mQuoteTextStyle"
+      android:layout_alignParentTop="true"
+      android:layout_marginTop="140dp"
+      tools:text="is your mind blown?"
+      android:layout_centerVertical="true"
+      android:layout_centerHorizontal="true"
+      android:gravity="center"
+      tools:ignore="UnusedAttribute"/>
+  <TextView
+      android:id="@+id/mind_blown_text"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_above="@+id/mind_blown_btn"
+      android:layout_centerHorizontal="true"
+      android:layout_marginBottom="20dp"
+      android:textSize="20sp"
+      android:fontFamily="sans-serif-condensed"
+      android:text="@string/is_mind_blown"
+      android:textColor="@color/primary"
+      tools:ignore="UnusedAttribute"/>
+  <Button
+      android:id="@+id/mind_blown_btn"
+      style="@style/mButtonTextStyle"
+      android:layout_above="@+id/not_yet_btn"/>
+  <Button
+      android:id="@+id/not_yet_btn"
+      style="@style/mButtonTextStyle"
+      android:layout_marginBottom="40dp"
+      android:layout_alignParentBottom="true"/>
 
-    </RelativeLayout>
+</RelativeLayout>
 
