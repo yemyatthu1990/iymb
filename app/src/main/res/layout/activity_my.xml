@@ -7,7 +7,7 @@
     android:elevation="20dp"
     android:background="@color/accent">
   <include layout="@layout/toolbar"
-      android:layout_height="?android:attr/actionBarSize"
+      android:layout_height="wrap_content"
       android:layout_width="match_parent"
       android:id="@+id/toolbar"
       android:layout_alignParentTop="true"/>

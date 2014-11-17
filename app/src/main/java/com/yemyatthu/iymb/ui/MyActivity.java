@@ -85,9 +85,10 @@ public class MyActivity extends ActionBarActivity {
 
     mMindBlownBtn.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View view) {
+        if(mGoodToGo){
         Intent i = new Intent(MyActivity.this, MindBlownActivity.class);
         i.putExtra(TAG, mFactText.getText().toString());
-        startActivityForResult(i, 1);
+        startActivityForResult(i, 1);}
       }
     });
     mNotYetBtn.setOnClickListener(new View.OnClickListener() {
