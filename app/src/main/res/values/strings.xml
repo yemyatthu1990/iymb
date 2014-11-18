@@ -33,6 +33,9 @@
   <string name="about_text">The facts are taken from the www.isyourmindblown.com. \n \nContact me at
     thu.yemyat@gmail.com.
   </string>
-
+  <string name="about_body"><![CDATA[
+        <b>Is Your Mind Blown?</b><br>
+        Version %s<br><br>]]></string>
+  <string name="about_licenses">Open Source Licenses</string>
 
 </resources>

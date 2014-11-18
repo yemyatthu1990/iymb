@@ -51,7 +51,7 @@ public class MindBlownActivity extends ActionBarActivity {
     Intent sendIntent = new Intent();
     sendIntent.setAction(Intent.ACTION_SEND);
     sendIntent.putExtra(Intent.EXTRA_TEXT,
-        String.format(getString(R.string.share_text), mFactText));
+        String.format(getString(R.string.share_text)  , mFactText));
     sendIntent.setType("text/plain");
     startActivity(Intent.createChooser(sendIntent, getResources().getText(R.string.share_to)));
   }

@@ -16,13 +16,19 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import com.crashlytics.android.Crashlytics;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.squareup.otto.Subscribe;
+import com.yemyatthu.iymb.Iymb;
 import com.yemyatthu.iymb.R;
 import com.yemyatthu.iymb.event.BusProvider;
 import com.yemyatthu.iymb.event.RefreshEvent;
 import com.yemyatthu.iymb.model.Fact;
 import com.yemyatthu.iymb.ui.widget.SecretTextView;
+import com.yemyatthu.iymb.util.HelpUtils;
 import com.yemyatthu.iymb.util.JsonService;
+import io.fabric.sdk.android.Fabric;
 import java.io.File;
 import java.util.List;
 import retrofit.Callback;
@@ -50,6 +56,7 @@ public class MyActivity extends ActionBarActivity {
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    Fabric.with(this, new Crashlytics());
     setContentView(R.layout.activity_my);
     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
     toolbar.setTitleTextColor(getResources().getColor(android.R.color.white));
@@ -86,11 +93,18 @@ public class MyActivity extends ActionBarActivity {
     mMindBlownBtn.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View view) {
         if(mGoodToGo){
-        Intent i = new Intent(MyActivity.this, MindBlownActivity.class);
-        i.putExtra(TAG, mFactText.getText().toString());
-        startActivityForResult(i, 1);}
-      }
-    });
+          Tracker t;
+          t = ((Iymb)getApplication()).getTracker(
+              Iymb.TrackerName.APP_TRACKER);
+          // Build and send an Event.
+          t.send(
+              new HitBuilders.EventBuilder().setCategory("Mind Blown!!").setAction(
+                  "Mind Blown!").build());
+          Intent i = new Intent(MyActivity.this, MindBlownActivity.class);
+          i.putExtra(TAG, mFactText.getText().toString());
+          startActivityForResult(i, 1);}
+        }
+      });
     mNotYetBtn.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View view) {
         BusProvider.getInstance().post(new RefreshEvent());
@@ -166,8 +180,8 @@ public class MyActivity extends ActionBarActivity {
   @Override public boolean onOptionsItemSelected(MenuItem item) {
     switch (item.getItemId()) {
       case R.id.about_menu:
-        Intent i = new Intent(this, PopupActivity.class);
-        startActivity(i);
+        HelpUtils.showAbout(this);
+        break;
     }
     return super.onOptionsItemSelected(item);
   }

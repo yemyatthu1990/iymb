@@ -9,6 +9,7 @@
       android:allowBackup="true"
       android:icon="@drawable/ic_launcher"
       android:label="@string/app_name"
+      android:name=".Iymb"
       android:theme="@style/AppTheme">
     <activity
         android:name="com.yemyatthu.iymb.ui.MyActivity"
@@ -30,6 +31,7 @@
         android:theme="@style/Base.Theme.AppCompat.Light.Dialog"
         android:excludeFromRecents="true">
     </activity>
+    <meta-data android:name="com.crashlytics.ApiKey" android:value="1a30e56940648f03a91ab93c862cda9633e5b7b3"/>
   </application>
 
 </manifest>
